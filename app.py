@@ -25,7 +25,7 @@ def predict_productivity(income_before, crop_yield_after, farm_size,
         'farm_size': [farm_size],
         'seeds_purchased': [seeds_purchased],
         'fertilizers_purchased': [fertilizers_purchased],
-        'crop_yield_before': [crop_yield_before]
+        'crop_yield_before': [crop_yield_before],
         'income_change': [income_change]  # Add the new feature here
     })
 
