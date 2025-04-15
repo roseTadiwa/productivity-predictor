@@ -61,7 +61,6 @@ crop_yield_before = st.number_input("Crop Yield Before", min_value=0)
 if st.button("Predict"):
     prediction = predict_productivity(income_before, crop_yield_after, farm_size,
                                       seeds_purchased, fertilizers_purchased,
-                                      crop_yield_before)
+                                      crop_yield_before, income_change)  # Include income_change
     st.success(f"The predicted Productivity Improvement Index is: **{prediction:.4f}**",
                 icon="✅")
-
