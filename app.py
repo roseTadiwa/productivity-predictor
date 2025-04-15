@@ -62,4 +62,3 @@ if st.button("Predict"):
     st.success(f"The predicted Productivity Improvement Index is: **{prediction:.4f}**",
                 icon="✅")
 
-!streamlit run app.py & npx localtunnel --port 8501
