@@ -17,14 +17,16 @@ model = joblib.load('xgboost_model.pkl')
 # Function to predict productivity improvement index
 def predict_productivity(income_before, crop_yield_after, farm_size,
                          seeds_purchased, fertilizers_purchased,
-                         crop_yield_before):
+                         crop_yield_before,income_change):
     input_data = pd.DataFrame({
+        
         'income_before': [income_before],
         'crop_yield_after': [crop_yield_after],
         'farm_size': [farm_size],
         'seeds_purchased': [seeds_purchased],
         'fertilizers_purchased': [fertilizers_purchased],
         'crop_yield_before': [crop_yield_before]
+        'income_change': [income_change]  # Add the new feature here
     })
 
     prediction = model.predict(input_data)
@@ -47,6 +49,7 @@ st.markdown("""
 
 # Input fields
 st.markdown("### Enter Your Data Below:")
+income_change = st.number_input("Income Change (in currency)", min_value=0)
 income_before = st.number_input("Income Before (in currency)", min_value=0)
 crop_yield_after = st.number_input("Crop Yield After", min_value=0)
 farm_size = st.number_input("Farm Size (in acres)", min_value=0.0)
